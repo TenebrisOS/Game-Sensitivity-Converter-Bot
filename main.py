@@ -1,25 +1,16 @@
 import discord
-import time
 import json
-import io
 #from discord import app_commands
-import interactions
 #from discord.ext import commands
 #from discord_slash import commands, SlashCommand, SlashContext
-import asyncio
-import selenium
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from pyvirtualdisplay import Display 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
-from discord import ButtonStyle, ActionRow, Button
 #from discord import SlashCommand
-import os
 from discord.ext import commands
 from discord import Color
-import pyperclip
 
 with open('C:/Users/modib/Documents/kali/py/SensConvertBOT/config.json') as f:
    data = json.load(f)
@@ -70,5 +61,14 @@ async def on_message(message:discord.Message):
         mbd.add_field(name = args[2].capitalize(), value = sensFinal.text)
         mbd.set_footer(text= 'Data taken from : https://armorygaminggear.com/')
         await message.channel.send(embed = mbd)
+
+    if args[0] == 'help' :
+        driver.get('https://armorygaminggear.com/sensitivity-converter')
+        mbdhelp = discord.Embed(title='All supported Games :', color = Color.red())
+        game = WebDriverWait(driver, timeout=10).until(lambda d: d.find_elements(By.TAG_NAME, 'li'))
+        for i in game :
+            mbdhelp.add_field(name = game.list, value = 'Yes')
+        mbdhelp.set_footer(text= 'Data taken from : https://armorygaminggear.com/')
+        await message.channel.send(embed = mbdhelp)
 
 client.run(TOKEN)
