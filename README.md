@@ -1,5 +1,5 @@
 # Game-Sensitivity-Converter-Bot
-This is a simple bot that can convert your sensitivity from a huge amount of games to another one. It uses [Sensitivity-Converter]([https://github.com/TenebrisOS](https://armorygaminggear.com/sensitivity-converter))
+This is a simple bot that can convert your sensitivity from a huge amount of games to another one. It uses [SensitivityConverter](https://armorygaminggear.com/sensitivity-converter)
 ## Commands And Usage
 - Prefix before every command "&"
 - Convert your sens from game to game : ``` <prefix>Convert <game1> <game2> <game1_sens> ```
